@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Банкротство физических лиц — законное списание долгов | ЯПомогаю.рф</title>
+<meta name="description" content="Помогаем законно списать долги по кредитам, МФО и ЖКХ через процедуру банкротства по 127-ФЗ. Честно о возможностях и последствиях. Бесплатная консультация.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink:    '#0F172A',
+        inksoft:'#1B2740',
+        mist:   '#F4F6F9',
+        card:   '#FBFCFD',
+        line:   '#E2E7EF',
+        muted:  '#55617A',
+        accent: '#059669',
+        accentdeep: '#047857',
+        accenttint: '#E9F6F0',
+        cloud:  '#DDE4F0'
+      },
+      fontFamily: {
+        display: ['Lora', 'Georgia', 'serif'],
+        body:    ['Onest', 'system-ui', 'sans-serif']
+      },
+      boxShadow: {
+        soft: '0 6px 24px -8px rgba(15, 23, 42, 0.10)',
+        lift: '0 16px 48px -12px rgba(15, 23, 42, 0.18)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .45s cubic-bezier(.22,1,.36,1); }
+  .faq-item.open .faq-answer { max-height: 600px; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform .3s cubic-bezier(.22,1,.36,1); }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body class="font-body bg-mist text-ink antialiased">
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header" class="sticky top-0 z-50 bg-mist/90 backdrop-blur border-b border-line/70">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 h-[72px] flex items-center justify-between">
+    <a href="#" class="flex items-baseline gap-0.5 select-none">
+      <span class="font-display font-bold text-[22px] tracking-tight">Я<span class="text-accent">Помогаю</span>.рф</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium text-inksoft">
+      <a href="#help" class="hover:text-accent transition-colors">Как мы помогаем</a>
+      <a href="#process" class="hover:text-accent transition-colors">Процедура</a>
+      <a href="#pricing" class="hover:text-accent transition-colors">Стоимость</a>
+      <a href="#reviews" class="hover:text-accent transition-colors">Отзывы</a>
+      <a href="#faq" class="hover:text-accent transition-colors">Вопросы</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-ink text-mist px-5 py-2.5 rounded-2xl text-[15px] font-semibold hover:bg-inksoft transition-colors">
+        Бесплатная консультация
+      </a>
+      <button id="menu-btn" class="lg:hidden p-2 -mr-2" aria-label="Открыть меню">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-line bg-mist px-5 py-4">
+    <nav class="flex flex-col gap-4 text-[16px] font-medium">
+      <a href="#help" class="menu-link">Как мы помогаем</a>
+      <a href="#process" class="menu-link">Процедура</a>
+      <a href="#pricing" class="menu-link">Стоимость</a>
+      <a href="#reviews" class="menu-link">Отзывы</a>
+      <a href="#faq" class="menu-link">Вопросы</a>
+      <a href="#contact" class="menu-link inline-flex items-center justify-center bg-ink text-mist px-5 py-3 rounded-2xl font-semibold">Бесплатная консультация</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 pt-14 pb-16 lg:pt-24 lg:pb-24 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7">
+      <p class="inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide uppercase text-accentdeep bg-accenttint px-3.5 py-1.5 rounded-full mb-6">
+        <i data-lucide="scale" class="w-4 h-4"></i>
+        Банкротство физических лиц по 127-ФЗ
+      </p>
+      <h1 class="font-display font-semibold text-[34px] leading-[1.15] sm:text-[44px] lg:text-[52px] lg:leading-[1.1] tracking-tight">
+        Долги можно списать законно.<br class="hidden sm:block">
+        А жизнь — начать спокойно.
+      </h1>
+      <p class="mt-6 text-[17px] lg:text-[18px] leading-relaxed text-muted max-w-[58ch]">
+        Помогаем пройти процедуру банкротства от первой консультации до судебного определения
+        об освобождении от долгов. Объясняем простым языком, честно говорим о последствиях
+        и не обещаем того, чего закон не гарантирует.
+      </p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-3.5">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-accent text-white px-7 py-4 rounded-2xl text-[16px] font-semibold shadow-soft hover:bg-accentdeep transition-colors">
+          Получить бесплатную консультацию
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+        <a href="#who" class="inline-flex items-center justify-center gap-2 bg-card border border-line px-7 py-4 rounded-2xl text-[16px] font-semibold text-inksoft hover:border-accent hover:text-accentdeep transition-colors">
+          Подойдёт ли мне банкротство
+        </a>
+      </div>
+      <div class="mt-10 pt-8 border-t border-line grid sm:grid-cols-3 gap-6 text-[14px]">
+        <div class="flex items-start gap-3">
+          <i data-lucide="shield-check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i>
+          <p class="text-inksoft leading-snug">Работаем строго в рамках ФЗ № 127 «О несостоятельности»</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <i data-lucide="file-signature" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i>
+          <p class="text-inksoft leading-snug">Фиксированная стоимость и этапы закреплены в договоре</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <i data-lucide="message-circle-heart" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i>
+          <p class="text-inksoft leading-snug">Первая консультация и анализ ситуации — бесплатно</p>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-5 relative">
+      <div class="rounded-2xl overflow-hidden shadow-lift">
+        <img src="https://placehold.co/880x1060/DDE4F0/55617A?text=Hero+photo" class="w-full h-full object-cover aspect-[4/5]"
+          alt="Спокойная женщина около 42 лет славянской внешности сидит за столом в светлой современной московской квартире и смотрит в окно с лёгкой улыбкой облегчения. На столе аккуратная стопка документов и чашка чая. Мягкий естественный свет из большого окна, тёплая и обнадеживающая атмосфера, фон слегка размыт. Светлые тона, без драматизма.">
+      </div>
+      <div class="absolute -bottom-5 -left-5 sm:-left-8 bg-card border border-line rounded-2xl shadow-soft px-5 py-4 flex items-center gap-3 max-w-[260px]">
+        <i data-lucide="badge-check" class="w-8 h-8 text-accent shrink-0"></i>
+        <p class="text-[13.5px] leading-snug text-inksoft">Освобождение от долгов подтверждается определением арбитражного суда</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== БОЛИ ===================== -->
+<section class="py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Вы узнали себя в этой ситуации?</h2>
+      <p class="mt-4 text-[17px] text-muted leading-relaxed">Если хотя бы два пункта про вас — это не повод для стыда. Это повод узнать, что говорит закон. А он на вашей стороне чаще, чем кажется.</p>
+    </div>
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-12 gap-5">
+      <div class="md:col-span-7 bg-ink text-cloud rounded-2xl p-8 lg:p-10 flex flex-col justify-between min-h-[220px] reveal">
+        <i data-lucide="phone-incoming" class="w-8 h-8 text-accent"></i>
+        <div class="mt-8">
+          <h3 class="font-display text-[22px] font-semibold text-mist">Звонки не прекращаются</h3>
+          <p class="mt-2.5 text-[15.5px] leading-relaxed text-cloud/85">Банки и коллекторы звонят вам, родственникам и даже на работу. Каждый незнакомый номер вызывает тревогу.</p>
+        </div>
+      </div>
+      <div class="md:col-span-5 bg-card border border-line rounded-2xl p-8 reveal">
+        <i data-lucide="trending-up" class="w-7 h-7 text-accentdeep"></i>
+        <h3 class="mt-6 font-display text-[20px] font-semibold">Долг растёт быстрее, чем вы платите</h3>
+        <p class="mt-2.5 text-[15px] leading-relaxed text-muted">Проценты, пени и штрафы съедают платежи. Сумма на экране банка не уменьшается месяцами.</p>
+      </div>
+      <div class="md:col-span-4 bg-card border border-line rounded-2xl p-8 reveal">
+        <i data-lucide="wallet" class="w-7 h-7 text-accentdeep"></i>
+        <h3 class="mt-6 font-display text-[20px] font-semibold">После платежей не остаётся на жизнь</h3>
+        <p class="mt-2.5 text-[15px] leading-relaxed text-muted">Больше половины дохода уходит кредиторам, а на еду, детей и лекарства приходится занимать снова.</p>
+      </div>
+      <div class="md:col-span-4 bg-card border border-line rounded-2xl p-8 reveal">
+        <i data-lucide="landmark" class="w-7 h-7 text-accentdeep"></i>
+        <h3 class="mt-6 font-display text-[20px] font-semibold">Приставы списывают деньги с карты</h3>
+        <p class="mt-2.5 text-[15px] leading-relaxed text-muted">В день зарплаты счёт пустеет: возбуждены исполнительные производства, карты под арестом.</p>
+      </div>
+      <div class="md:col-span-4 bg-accenttint border border-accent/20 rounded-2xl p-8 reveal">
+        <i data-lucide="home" class="w-7 h-7 text-accentdeep"></i>
+        <h3 class="mt-6 font-display text-[20px] font-semibold">Страшно за имущество</h3>
+        <p class="mt-2.5 text-[15px] leading-relaxed text-inksoft/80">Вы боитесь, что заберут квартиру или машину, и не знаете, что на самом деле защищено законом.</p>
+      </div>
+      <div class="md:col-span-12 bg-card border border-line rounded-2xl p-8 lg:px-10 flex flex-col sm:flex-row sm:items-center gap-6 reveal">
+        <i data-lucide="cloud-rain" class="w-8 h-8 text-accentdeep shrink-0"></i>
+        <div class="flex-1">
+          <h3 class="font-display text-[20px] font-semibold">Усталость и ощущение тупика</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[70ch]">Вы давно живёте в режиме выживания и стыдитесь говорить о долгах даже с близкими. Закон создал процедуру банкротства именно для таких ситуаций — чтобы у человека был легальный выход.</p>
+        </div>
+        <a href="#contact" class="inline-flex items-center gap-2 text-accentdeep font-semibold whitespace-nowrap hover:underline underline-offset-4">
+          Обсудить мою ситуацию <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== КАК МЫ ПОМОГАЕМ ===================== -->
+<section id="help" class="py-16 lg:py-24 bg-card border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-5 reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Берём процедуру на себя — полностью</h2>
+      <p class="mt-5 text-[16.5px] leading-relaxed text-muted">
+        Банкротство — это судебная процедура с десятками документов, сроков и участников.
+        Мы ведём её «под ключ»: вы подписываете договор и доверенность, а дальше общаетесь
+        только со своим юристом.
+      </p>
+      <p class="mt-4 text-[16.5px] leading-relaxed text-muted">
+        Перед договором мы честно оцениваем перспективы. Если в вашем случае банкротство
+        не решит проблему или создаст новые риски — мы прямо скажем об этом и предложим
+        альтернативы, например реструктуризацию.
+      </p>
+      <a href="#process" class="mt-8 inline-flex items-center gap-2 text-accentdeep font-semibold hover:underline underline-offset-4">
+        Посмотреть этапы процедуры <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+    <div class="lg:col-span-7 reveal">
+      <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-7">
+        <li class="flex gap-4">
+          <i data-lucide="search-check" class="w-6 h-6 text-accent shrink-0 mt-0.5"></i>
+          <div>
+            <p class="font-semibold text-[16px]">Анализ ситуации и выбор процедуры</p>
+            <p class="mt-1.5 text-[14.5px] leading-relaxed text-muted">Проверяем долги, имущество и сделки за последние годы. Подбираем судебное или внесудебное банкротство.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <i data-lucide="folder-open" class="w-6 h-6 text-accent shrink-0 mt-0.5"></i>
+          <div>
+            <p class="font-semibold text-[16px]">Сбор и подготовка документов</p>
+            <p class="mt-1.5 text-[14.5px] leading-relaxed text-muted">Запрашиваем справки у банков, ФНС, ПФР и приставов, готовим заявление и опись имущества.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <i data-lucide="gavel" class="w-6 h-6 text-accent shrink-0 mt-0.5"></i>
+          <div>
+            <p class="font-semibold text-[16px]">Подача заявления и представительство в суде</p>
+            <p class="mt-1.5 text-[14.5px] leading-relaxed text-muted">Подаём заявление в арбитражный суд и участвуем во всех заседаниях по доверенности.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <i data-lucide="user-cog" class="w-6 h-6 text-accent shrink-0 mt-0.5"></i>
+          <div>
+            <p class="font-semibold text-[16px]">Взаимодействие с финансовым управляющим</p>
+            <p class="mt-1.5 text-[14.5px] leading-relaxed text-muted">Предлагаем суду СРО арбитражных управляющих и сопровождаем работу управляющего на всех этапах.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <i data-lucide="shield" class="w-6 h-6 text-accent shrink-0 mt-0.5"></i>
+          <div>
+            <p class="font-semibold text-[16px]">Защита от кредиторов и коллекторов</p>
+            <p class="mt-1.5 text-[14.5px] leading-relaxed text-muted">После введения процедуры требования к вам предъявляются только в рамках дела о банкротстве.</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <i data-lucide="flag" class="w-6 h-6 text-accent shrink-0 mt-0.5"></i>
+          <div>
+            <p class="font-semibold text-[16px]">Сопровождение до завершения</p>
+            <p class="mt-1.5 text-[14.5px] leading-relaxed text-muted">Доводим дело до определения суда о завершении процедуры и освобождении от обязательств.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ПОЧЕМУ ВЫБИРАЮТ НАС ===================== -->
+<section class="py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5 lg:sticky lg:top-28 reveal">
+        <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Почему люди доверяют нам сложный период своей жизни</h2>
+        <div class="mt-8 rounded-2xl overflow-hidden shadow-soft">
+          <img src="https://placehold.co/920x690/DDE4F0/55617A?text=Lawyer+and+client" class="w-full object-cover aspect-[4/3]"
+            alt="Профессиональный юрист и клиент, мужчина 42 лет, сидят за столом в светлом современном офисе. Юрист спокойно объясняет документы, показывая на страницу, клиент внимательно слушает. Оба в деловой casual одежде. Атмосфера доверия и спокойствия, мягкий дневной свет, светлые тона интерьера.">
+        </div>
+      </div>
+      <ol class="lg:col-span-7 divide-y divide-line">
+        <li class="py-6 first:pt-0 flex gap-6 reveal">
+          <span class="font-display text-[15px] font-semibold text-accentdeep pt-1">01</span>
+          <div>
+            <h3 class="font-semibold text-[17px]">Честный прогноз до подписания договора</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[58ch]">Сначала анализ, потом договор. Если банкротство вам не подходит — скажем «нет» и объясним почему. Нам важнее ваш результат, чем подписанный контракт.</p>
+          </div>
+        </li>
+        <li class="py-6 flex gap-6 reveal">
+          <span class="font-display text-[15px] font-semibold text-accentdeep pt-1">02</span>
+          <div>
+            <h3 class="font-semibold text-[17px]">Фиксированная стоимость в договоре</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[58ch]">Цена услуг и перечень обязательных расходов прописаны в договоре до начала работы. Никаких «доплат по ходу дела».</p>
+          </div>
+        </li>
+        <li class="py-6 flex gap-6 reveal">
+          <span class="font-display text-[15px] font-semibold text-accentdeep pt-1">03</span>
+          <div>
+            <h3 class="font-semibold text-[17px]">Личный юрист и понятные отчёты</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[58ch]">У вас один контакт на всё дело. Юрист сообщает о каждом этапе простым языком: что произошло, что дальше, что требуется от вас.</p>
+          </div>
+        </li>
+        <li class="py-6 flex gap-6 reveal">
+          <span class="font-display text-[15px] font-semibold text-accentdeep pt-1">04</span>
+          <div>
+            <h3 class="font-semibold text-[17px]">Законная защита имущества</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[58ch]">Помогаем сохранить то, что защищает закон: единственное жильё, личные вещи, прожиточный минимум на вас и иждивенцев. Без серых схем — они оборачиваются отказом в списании.</p>
+          </div>
+        </li>
+        <li class="py-6 flex gap-6 reveal">
+          <span class="font-display text-[15px] font-semibold text-accentdeep pt-1">05</span>
+          <div>
+            <h3 class="font-semibold text-[17px]">Работаем по всей России</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[58ch]">Дело можно вести дистанционно: документы по почте и в электронном виде, заседания — по доверенности. Приезжать в офис не обязательно.</p>
+          </div>
+        </li>
+        <li class="py-6 flex gap-6 reveal">
+          <span class="font-display text-[15px] font-semibold text-accentdeep pt-1">06</span>
+          <div>
+            <h3 class="font-semibold text-[17px]">Рассрочка без банков</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[58ch]">Понимаем, что свободных денег у вас сейчас нет. Делим оплату на комфортные ежемесячные платежи по внутренней рассрочке, без кредитов.</p>
+          </div>
+        </li>
+        <li class="py-6 last:pb-0 flex gap-6 reveal">
+          <span class="font-display text-[15px] font-semibold text-accentdeep pt-1">07</span>
+          <div>
+            <h3 class="font-semibold text-[17px]">Опираемся на судебную практику</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-muted max-w-[58ch]">Следим за практикой арбитражных судов и Верховного Суда по делам о банкротстве граждан и строим позицию по вашему делу на реальных решениях.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ПРОЦЕДУРА ===================== -->
+<section id="process" class="py-16 lg:py-24 bg-ink text-cloud">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight text-mist">Как проходит судебное банкротство</h2>
+      <p class="mt-4 text-[16.5px] leading-relaxed text-cloud/80">Обычно процедура занимает от 8 до 12 месяцев. Сроки зависят от загруженности суда, состава имущества и поведения кредиторов — мы называем реалистичный диапазон, а не «спишем за 3 месяца».</p>
+    </div>
+    <ol class="mt-14 relative max-w-3xl">
+      <div class="absolute left-[19px] top-2 bottom-2 w-px bg-cloud/20" aria-hidden="true"></div>
+      <li class="relative pl-16 pb-12 reveal">
+        <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white font-display font-semibold flex items-center justify-center">1</span>
+        <h3 class="font-display text-[20px] font-semibold text-mist">Бесплатная консультация и анализ</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-cloud/75 max-w-[62ch]">Изучаем долги, доходы, имущество и сделки за последние 3 года. Оцениваем риски и честно говорим, какой результат реален именно в вашем деле.</p>
+        <p class="mt-2 text-[13px] font-semibold text-accent uppercase tracking-wide">1–3 дня</p>
+      </li>
+      <li class="relative pl-16 pb-12 reveal">
+        <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white font-display font-semibold flex items-center justify-center">2</span>
+        <h3 class="font-display text-[20px] font-semibold text-mist">Договор и сбор документов</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-cloud/75 max-w-[62ch]">Заключаем договор с фиксированной ценой. Запрашиваем справки о долгах, доходах и имуществе, готовим заявление о признании банкротом, списки кредиторов и опись имущества.</p>
+        <p class="mt-2 text-[13px] font-semibold text-accent uppercase tracking-wide">2–4 недели</p>
+      </li>
+      <li class="relative pl-16 pb-12 reveal">
+        <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white font-display font-semibold flex items-center justify-center">3</span>
+        <h3 class="font-display text-[20px] font-semibold text-mist">Подача заявления в арбитражный суд</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-cloud/75 max-w-[62ch]">Подаём заявление, вносим на депозит суда вознаграждение финансового управляющего (25 000 ₽). Суд проверяет заявление и назначает первое заседание.</p>
+        <p class="mt-2 text-[13px] font-semibold text-accent uppercase tracking-wide">1–2 месяца до заседания</p>
+      </li>
+      <li class="relative pl-16 pb-12 reveal">
+        <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white font-display font-semibold flex items-center justify-center">4</span>
+        <h3 class="font-display text-[20px] font-semibold text-mist">Признание заявления обоснованным</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-cloud/75 max-w-[62ch]">Суд вводит процедуру: реструктуризацию долгов или сразу реализацию имущества. С этого момента начисление процентов и пеней прекращается, а исполнительные производства приостанавливаются.</p>
+      </li>
+      <li class="relative pl-16 pb-12 reveal">
+        <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white font-display font-semibold flex items-center justify-center">5</span>
+        <h3 class="font-display text-[20px] font-semibold text-mist">Работа финансового управляющего</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-cloud/75 max-w-[62ch]">Управляющий формирует реестр кредиторов, анализирует сделки и имущество, публикует сведения в ЕФРСБ. Из дохода вам ежемесячно выделяется прожиточный минимум на вас и иждивенцев.</p>
+        <p class="mt-2 text-[13px] font-semibold text-accent uppercase tracking-wide">4–6 месяцев</p>
+      </li>
+      <li class="relative pl-16 pb-12 reveal">
+        <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white font-display font-semibold flex items-center justify-center">6</span>
+        <h3 class="font-display text-[20px] font-semibold text-mist">Реализация имущества и расчёты</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-cloud/75 max-w-[62ch]">Если есть имущество, не защищённое законом, оно продаётся на торгах, а выручка распределяется между кредиторами. Если такого имущества нет — этап проходит формально.</p>
+      </li>
+      <li class="relative pl-16 reveal">
+        <span class="absolute left-0 top-0 w-10 h-10 rounded-full bg-mist text-ink font-display font-semibold flex items-center justify-center">7</span>
+        <h3 class="font-display text-[20px] font-semibold text-mist">Завершение процедуры и освобождение от долгов</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-cloud/75 max-w-[62ch]">Суд выносит определение о завершении реализации имущества и, при вашей добросовестности, освобождает от дальнейшего исполнения требований кредиторов (ст. 213.28 закона № 127-ФЗ).</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== КАКИЕ ДОЛГИ ===================== -->
+<section class="py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Какие долги списываются, а какие — нет</h2>
+      <p class="mt-4 text-[17px] text-muted leading-relaxed">Закон прямо перечисляет обязательства, от которых банкротство не освобождает. Мы говорим об этом на первой консультации, а не после суда.</p>
+    </div>
+    <div class="mt-12 grid lg:grid-cols-2 gap-6">
+      <div class="bg-accenttint border border-accent/20 rounded-2xl p-8 lg:p-10 reveal">
+        <div class="flex items-center gap-3">
+          <i data-lucide="check-circle-2" class="w-7 h-7 text-accentdeep"></i>
+          <h3 class="font-display text-[22px] font-semibold">Списываются</h3>
+        </div>
+        <ul class="mt-7 space-y-4 text-[15.5px] leading-relaxed">
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accentdeep shrink-0 mt-0.5"></i><span>Кредиты и кредитные карты банков, включая просроченные проценты, пени и штрафы</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accentdeep shrink-0 mt-0.5"></i><span>Займы в МФО и долги по распискам перед физическими лицами</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accentdeep shrink-0 mt-0.5"></i><span>Задолженность по ЖКХ и связи</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accentdeep shrink-0 mt-0.5"></i><span>Налоги и штрафы, возникшие до возбуждения дела о банкротстве</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accentdeep shrink-0 mt-0.5"></i><span>Долги по договорам поручительства</span></li>
+        </ul>
+      </div>
+      <div class="bg-card border border-line rounded-2xl p-8 lg:p-10 reveal">
+        <div class="flex items-center gap-3">
+          <i data-lucide="x-circle" class="w-7 h-7 text-muted"></i>
+          <h3 class="font-display text-[22px] font-semibold">Не списываются (ст. 213.28 закона № 127-ФЗ)</h3>
+        </div>
+        <ul class="mt-7 space-y-4 text-[15.5px] leading-relaxed text-inksoft">
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-muted shrink-0 mt-0.5"></i><span>Алименты на детей и других членов семьи</span></li>
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-muted shrink-0 mt-0.5"></i><span>Возмещение вреда жизни и здоровью, морального вреда</span></li>
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-muted shrink-0 mt-0.5"></i><span>Зарплата и выходные пособия работникам (если вы были работодателем)</span></li>
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-muted shrink-0 mt-0.5"></i><span>Субсидиарная ответственность и убытки, причинённые юридическому лицу умышленно или по грубой неосторожности</span></li>
+          <li class="flex gap-3"><i data-lucide="x" class="w-5 h-5 text-muted shrink-0 mt-0.5"></i><span>Текущие платежи, возникшие после возбуждения дела</span></li>
+        </ul>
+        <p class="mt-7 text-[14px] leading-relaxed text-muted bg-mist rounded-xl px-5 py-4">Важно: суд может не освободить от долгов, если должник действовал недобросовестно — скрывал имущество, предоставлял ложные сведения, оформлял фиктивные сделки. Поэтому мы проверяем все риски заранее.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== КТО МОЖЕТ ПРОЙТИ ===================== -->
+<section id="who" class="py-16 lg:py-24 bg-card border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Кто может пройти банкротство</h2>
+      <p class="mt-4 text-[17px] text-muted leading-relaxed">Без приукрашивания: закон устанавливает условия, и не каждому банкротство выгодно. Вот честные ориентиры.</p>
+    </div>
+    <div class="mt-12 grid lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-line bg-mist p-8 reveal">
+        <p class="text-[13px] font-semibold uppercase tracking-wide text-accentdeep">Судебное банкротство</p>
+        <h3 class="mt-3 font-display text-[21px] font-semibold leading-snug">Подать заявление можно при любой сумме долга</h3>
+        <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-inksoft">
+          <li class="flex gap-2.5"><i data-lucide="dot" class="w-5 h-5 shrink-0 text-accent"></i><span>Вы предвидите, что не сможете рассчитаться: платежи просрочены или доход не покрывает обязательства</span></li>
+          <li class="flex gap-2.5"><i data-lucide="dot" class="w-5 h-5 shrink-0 text-accent"></i><span>При долге от 500 000 ₽ и просрочке от 3 месяцев подача заявления — уже обязанность по закону</span></li>
+          <li class="flex gap-2.5"><i data-lucide="dot" class="w-5 h-5 shrink-0 text-accent"></i><span>На практике процедура экономически оправдана при долге примерно от 300 000 ₽</span></li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-line bg-mist p-8 reveal">
+        <p class="text-[13px] font-semibold uppercase tracking-wide text-accentdeep">Внесудебное банкротство через МФЦ</p>
+        <h3 class="mt-3 font-display text-[21px] font-semibold leading-snug">Бесплатно, если вы подходите под условия</h3>
+        <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-inksoft">
+          <li class="flex gap-2.5"><i data-lucide="dot" class="w-5 h-5 shrink-0 text-accent"></i><span>Общий долг от 25 000 до 1 000 000 ₽</span></li>
+          <li class="flex gap-2.5"><i data-lucide="dot" class="w-5 h-5 shrink-0 text-accent"></i><span>Исполнительное производство окончено из-за отсутствия имущества, либо вы пенсионер или получатель детского пособия с долгом, который взыскивают более года</span></li>
+          <li class="flex gap-2.5"><i data-lucide="dot" class="w-5 h-5 shrink-0 text-accent"></i><span>Процедура длится 6 месяцев и проводится МФЦ без суда</span></li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-accent/25 bg-accenttint p-8 reveal">
+        <p class="text-[13px] font-semibold uppercase tracking-wide text-accentdeep">Когда нужна осторожность</p>
+        <h3 class="mt-3 font-display text-[21px] font-semibold leading-snug">Сначала разберём риски, потом — договор</h3>
+        <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-inksoft">
+          <li class="flex gap-2.5"><i data-lucide="alert-triangle" class="w-5 h-5 shrink-0 text-accentdeep mt-0.5"></i><span>За последние 3 года вы дарили или продавали имущество близким — такие сделки могут оспорить</span></li>
+          <li class="flex gap-2.5"><i data-lucide="alert-triangle" class="w-5 h-5 shrink-0 text-accentdeep mt-0.5"></i><span>Есть ипотека или залоговое имущество — нужен отдельный план его защиты</span></li>
+          <li class="flex gap-2.5"><i data-lucide="alert-triangle" class="w-5 h-5 shrink-0 text-accentdeep mt-0.5"></i><span>Кредиты оформлялись по недостоверным справкам о доходе — обсудим, как это повлияет на дело</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== СТОИМОСТЬ ===================== -->
+<section id="pricing" class="py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="max-w-2xl reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Стоимость: прозрачно и без сюрпризов</h2>
+      <p class="mt-4 text-[17px] text-muted leading-relaxed">Цена фиксируется в договоре. Отдельно оплачиваются обязательные расходы по закону: депозит на вознаграждение финансового управляющего (25 000 ₽) и публикации в ЕФРСБ и газете «Коммерсантъ» (ориентировочно 15 000–20 000 ₽).</p>
+    </div>
+    <div class="mt-12 grid lg:grid-cols-3 gap-6 lg:items-stretch">
+      <div class="rounded-2xl bg-card border border-line p-8 flex flex-col reveal">
+        <p class="text-[13px] font-semibold uppercase tracking-wide text-accentdeep">Внесудебное</p>
+        <h3 class="mt-3 font-display text-[22px] font-semibold">Банкротство через МФЦ</h3>
+        <p class="mt-5 font-display text-[34px] font-semibold">45 000 ₽</p>
+        <p class="mt-1 text-[14px] text-muted">или 4 платежа по 11 250 ₽</p>
+        <ul class="mt-7 space-y-3.5 text-[15px] leading-relaxed text-inksoft flex-1">
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Проверка соответствия условиям внесудебной процедуры</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Подготовка заявления и полного списка кредиторов</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Сопровождение подачи в МФЦ и контроль публикации в ЕФРСБ</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Консультации в течение всех 6 месяцев процедуры</span></li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex items-center justify-center bg-mist border border-line px-6 py-3.5 rounded-2xl font-semibold text-[15px] hover:border-accent hover:text-accentdeep transition-colors">Проверить, подхожу ли я</a>
+      </div>
+      <div class="rounded-2xl bg-ink text-cloud p-8 flex flex-col shadow-lift lg:-my-4 lg:py-12 reveal">
+        <p class="text-[13px] font-semibold uppercase tracking-wide text-accent">Выбирают чаще всего</p>
+        <h3 class="mt-3 font-display text-[22px] font-semibold text-mist">Судебное банкротство «под ключ»</h3>
+        <p class="mt-5 font-display text-[34px] font-semibold text-mist">от 150 000 ₽</p>
+        <p class="mt-1 text-[14px] text-cloud/70">рассрочка от 12 500 ₽ в месяц</p>
+        <ul class="mt-7 space-y-3.5 text-[15px] leading-relaxed text-cloud/90 flex-1">
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Полный анализ рисков, сделок и имущества до договора</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Сбор документов, заявление, подача в арбитражный суд</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Представительство во всех судебных заседаниях</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Взаимодействие с финансовым управляющим и кредиторами</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Сохранение прожиточного минимума и защищённого имущества</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Ведение дела до определения суда о списании долгов</span></li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex items-center justify-center bg-accent text-white px-6 py-3.5 rounded-2xl font-semibold text-[15px] hover:bg-accentdeep transition-colors">Рассчитать мою стоимость</a>
+      </div>
+      <div class="rounded-2xl bg-card border border-line p-8 flex flex-col reveal">
+        <p class="text-[13px] font-semibold uppercase tracking-wide text-accentdeep">Комплекс</p>
+        <h3 class="mt-3 font-display text-[22px] font-semibold">Сложные дела и защита имущества</h3>
+        <p class="mt-5 font-display text-[34px] font-semibold">от 220 000 ₽</p>
+        <p class="mt-1 text-[14px] text-muted">рассрочка обсуждается индивидуально</p>
+        <ul class="mt-7 space-y-3.5 text-[15px] leading-relaxed text-inksoft flex-1">
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Всё из тарифа «под ключ»</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Защита позиции при оспаривании сделок за последние 3 года</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Стратегия по ипотечному и залоговому имуществу</span></li>
+          <li class="flex gap-3"><i data-lucide="check" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span>Работа с возражениями кредиторов и жалобами</span></li>
+        </ul>
+        <a href="#contact" class="mt-8 inline-flex items-center justify-center bg-mist border border-line px-6 py-3.5 rounded-2xl font-semibold text-[15px] hover:border-accent hover:text-accentdeep transition-colors">Обсудить моё дело</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== РЕЗУЛЬТАТЫ И ОТЗЫВЫ ===================== -->
+<section id="reviews" class="py-16 lg:py-24 bg-card border-y border-line">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-10 items-end reveal">
+      <div class="lg:col-span-6">
+        <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Результаты, которыми делятся клиенты</h2>
+        <p class="mt-4 text-[16.5px] text-muted leading-relaxed">Каждое дело завершается судебным актом — его номер можно проверить в картотеке арбитражных дел.</p>
+      </div>
+      <dl class="lg:col-span-6 grid grid-cols-3 gap-6 lg:justify-items-end text-left lg:text-right">
+        <div>
+          <dt class="text-[13px] text-muted">завершённых процедур</dt>
+          <dd class="mt-1 font-display text-[30px] font-semibold leading-none">2 137</dd>
+        </div>
+        <div>
+          <dt class="text-[13px] text-muted">списано долгов</dt>
+          <dd class="mt-1 font-display text-[30px] font-semibold leading-none">3,4 млрд ₽</dd>
+        </div>
+        <div>
+          <dt class="text-[13px] text-muted">лет практики</dt>
+          <dd class="mt-1 font-display text-[30px] font-semibold leading-none">9</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      <figure class="rounded-2xl bg-mist border border-line p-7 flex flex-col reveal">
+        <i data-lucide="quote" class="w-7 h-7 text-accent/60"></i>
+        <blockquote class="mt-5 text-[15.5px] leading-relaxed text-inksoft flex-1">«Три года я платила только проценты по пяти кредитам. Боялась самого слова "банкротство", но мне спокойно объяснили и плюсы, и минусы. Через 10 месяцев суд списал 870 тысяч. Впервые за долгое время я сплю по ночам».</blockquote>
+        <figcaption class="mt-7 flex items-center gap-4">
+          <img src="https://placehold.co/160x160/DDE4F0/55617A?text=E" class="w-12 h-12 rounded-full object-cover"
+            alt="Портрет женщины 38 лет славянской внешности в уютной домашней обстановке. Она улыбается с заметным облегчением, мягкий тёплый свет, светлый интерьер, повседневная аккуратная одежда.">
+          <div>
+            <p class="font-semibold text-[15px]">Елена, 38 лет</p>
+            <p class="text-[13px] text-muted">Москва · списано 870 000 ₽</p>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="rounded-2xl bg-mist border border-line p-7 flex flex-col reveal">
+        <i data-lucide="quote" class="w-7 h-7 text-accent/60"></i>
+        <blockquote class="mt-5 text-[15.5px] leading-relaxed text-inksoft flex-1">«Сразу предупредили, что машину, скорее всего, продадут с торгов — так и вышло. Зато никаких сказок и неожиданностей. Долг в 1,4 миллиона списали, единственную квартиру не тронули. Сейчас работаю и коплю на новую машину уже без кредитов».</blockquote>
+        <figcaption class="mt-7 flex items-center gap-4">
+          <img src="https://placehold.co/160x160/DDE4F0/55617A?text=S" class="w-12 h-12 rounded-full object-cover"
+            alt="Мужчина 47 лет славянской внешности за рулём автомобиля, спокойное уверенное выражение лица, лёгкая улыбка, дневной свет через лобовое стекло. Символ начала новой жизни, без пафоса, реалистичная атмосфера.">
+          <div>
+            <p class="font-semibold text-[15px]">Сергей, 47 лет</p>
+            <p class="text-[13px] text-muted">Подольск · списано 1 400 000 ₽</p>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="rounded-2xl bg-mist border border-line p-7 flex flex-col reveal">
+        <i data-lucide="quote" class="w-7 h-7 text-accent/60"></i>
+        <blockquote class="mt-5 text-[15.5px] leading-relaxed text-inksoft flex-1">«Мы с мужем набрали займов после того, как он потерял работу. Банкротились по очереди, юрист вёл оба дела. Процедуры заняли по году, было непросто собрать документы, но нас вели за руку. Списали в сумме 2,1 миллиона. Теперь живём по средствам — и это счастье».</blockquote>
+        <figcaption class="mt-7 flex items-center gap-4">
+          <img src="https://placehold.co/160x160/DDE4F0/55617A?text=A%2BO" class="w-12 h-12 rounded-full object-cover"
+            alt="Семейная пара 40+ лет славянской внешности в современной светлой кухне-гостиной. Они обнимаются, лица спокойные и счастливые, естественный дневной свет, уютная домашняя атмосфера без постановочности.">
+          <div>
+            <p class="font-semibold text-[15px]">Андрей и Ольга</p>
+            <p class="text-[13px] text-muted">Тверь · списано 2 100 000 ₽</p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="py-16 lg:py-24">
+  <div class="max-w-3xl mx-auto px-5 lg:px-8">
+    <div class="reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Вопросы, которые задают чаще всего</h2>
+      <p class="mt-4 text-[17px] text-muted leading-relaxed">Отвечаем так, как ответили бы на консультации: по закону и без преувеличений.</p>
+    </div>
+    <div class="mt-10 divide-y divide-line border-y border-line">
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Мне точно спишут все долги?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">Гарантировать списание на 100% не может никто — это решение принимает суд. Суд освобождает от долгов добросовестного должника, и в большинстве дел граждан так и происходит. Но есть исключения: алименты, возмещение вреда здоровью и ряд других обязательств не списываются, а при недобросовестности (сокрытие имущества, ложные сведения) суд вправе отказать в освобождении. Поэтому мы оцениваем риски до договора и берём дела, где видим реальную перспективу.</p>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Что будет с единственным жильём?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">Единственное пригодное для проживания жильё защищено статьёй 446 ГПК РФ и не включается в конкурсную массу. Исключение — жильё в ипотеке: оно находится в залоге у банка. С 2024 года закон позволяет в ряде случаев сохранить ипотечную квартиру, заключив отдельное мировое соглашение с залоговым кредитором, если платежи по ипотеке вносятся. Это сложный инструмент, и его применимость мы оцениваем индивидуально.</p>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Какие последствия будут после банкротства?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <div class="pb-5 text-[15px] leading-relaxed text-muted space-y-3">
+            <p>Закон (ст. 213.30 № 127-ФЗ) устанавливает такие ограничения:</p>
+            <p>· 5 лет вы обязаны сообщать о банкротстве при оформлении кредитов и займов;<br>· 5 лет нельзя повторно подать на судебное банкротство по своему заявлению;<br>· 3 года нельзя занимать должности в органах управления юридических лиц, 5 лет — в МФО, страховых, НПФ и инвестфондах, 10 лет — в банках.</p>
+            <p>Сведения о процедуре попадают в кредитную историю. Мы считаем правильным говорить об этом сразу: для большинства клиентов эти ограничения несравнимы с жизнью под растущим долгом.</p>
+          </div>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Узнают ли о банкротстве на работе?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">Специально работодателя никто не уведомляет. Сведения публикуются в ЕФРСБ и картотеке арбитражных дел — это открытые реестры, но искать вас там нужно целенаправленно. На трудовые права банкротство не влияет: уволить или не принять на работу из-за него нельзя. Ограничения касаются только руководящих должностей в юрлицах и финансовых организациях.</p>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Сколько длится процедура и сколько я заплачу в итоге?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">Судебное банкротство обычно занимает 8–12 месяцев, внесудебное через МФЦ — ровно 6 месяцев. Итоговая сумма складывается из стоимости наших услуг по договору и обязательных расходов: депозит на вознаграждение финансового управляющего (25 000 ₽ за процедуру) и публикации в ЕФРСБ и «Коммерсанте» (около 15 000–20 000 ₽). Все суммы фиксируются до начала работы — финальная цифра не изменится.</p>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">У меня ипотека. Банкротство возможно?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">Возможно, но требует отдельной стратегии. Ипотечное жильё находится в залоге, и по общему правилу оно реализуется в процедуре. При этом с 2024 года появилась возможность заключить мировое соглашение с ипотечным банком и сохранить квартиру, продолжая платить по графику, либо привлечь третье лицо для погашения. Применимость каждого варианта зависит от вашей ситуации — это первое, что мы разберём на консультации.</p>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Что такое внесудебное банкротство через МФЦ?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">Это упрощённая бесплатная процедура для долгов от 25 000 до 1 000 000 ₽. Основное условие — приставы окончили исполнительное производство из-за отсутствия у вас имущества; для пенсионеров и получателей детских пособий действуют смягчённые требования. Вы подаёте заявление в МФЦ со списком всех кредиторов, и через 6 месяцев указанные долги списываются. Важно никого не забыть в списке: долг перед пропущенным кредитором не спишется.</p>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Коллекторы перестанут звонить?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">Да. С момента, когда суд признаёт заявление обоснованным и вводит процедуру, все требования к вам предъявляются только в рамках дела о банкротстве — через суд и финансового управляющего. Исполнительные производства приостанавливаются, аресты с карт снимаются, начисление процентов и пеней прекращается. Прямое давление на вас с этого момента незаконно, и мы помогаем его пресекать.</p>
+        </div>
+      </div>
+      <div class="faq-item py-2 reveal">
+        <button class="faq-toggle w-full flex items-center justify-between gap-6 py-4 text-left" aria-expanded="false">
+          <span class="font-semibold text-[16.5px]">Смогу ли я потом брать кредиты и ездить за границу?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-accentdeep shrink-0"></i>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">После завершения процедуры запрета на кредиты нет, но 5 лет вы обязаны сообщать банку о факте банкротства, и решение остаётся за банком — первое время условия будут осторожными. Выезд за границу после завершения процедуры не ограничен; во время самой процедуры суд может временно ограничить выезд, но по ходатайству ограничение снимается при уважительных причинах. Запрет, связанный с долгами у приставов, наоборот, снимается с введением процедуры.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== ФИНАЛЬНЫЙ CTA + ФОРМА ===================== -->
+<section id="contact" class="py-16 lg:py-24 bg-ink text-cloud">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-6 reveal">
+      <h2 class="font-display font-semibold text-[30px] sm:text-[40px] leading-tight tracking-tight text-mist">Сделайте первый шаг.<br>Остальные мы пройдём вместе.</h2>
+      <p class="mt-5 text-[16.5px] leading-relaxed text-cloud/80 max-w-[56ch]">Оставьте заявку — юрист перезвонит в течение рабочего дня, разберёт вашу ситуацию и честно скажет, подходит ли вам банкротство. Консультация бесплатна и ни к чему не обязывает.</p>
+      <div class="mt-9 rounded-2xl overflow-hidden shadow-lift max-w-md">
+        <img src="https://placehold.co/840x560/1B2740/8B97B5?text=Signing+documents" class="w-full object-cover aspect-[3/2]"
+          alt="Крупный план: руки человека подписывают документы ручкой за столом у большого окна с видом на Москву. Видны только руки, документы и край стола. Мягкий дневной свет, атмосфера решимости и начала нового жизненного этапа. Светлые спокойные тона.">
+      </div>
+    </div>
+    <div class="lg:col-span-6 reveal">
+      <div id="form-card" class="bg-card text-ink rounded-2xl p-8 lg:p-10 shadow-lift">
+        <h3 class="font-display text-[24px] font-semibold">Бесплатная консультация</h3>
+        <p class="mt-2 text-[14.5px] text-muted">Заполните форму, и мы свяжемся с вами в течение рабочего дня.</p>
+        <form id="lead-form" class="mt-7 space-y-5" novalidate>
+          <div>
+            <label for="name" class="block text-[14px] font-semibold mb-1.5">Ваше имя</label>
+            <input id="name" name="name" type="text" required autocomplete="name" placeholder="Как к вам обращаться"
+              class="w-full rounded-xl border border-line bg-mist px-4 py-3.5 text-[15px] outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition">
+          </div>
+          <div>
+            <label for="phone" class="block text-[14px] font-semibold mb-1.5">Телефон</label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__"
+              class="w-full rounded-xl border border-line bg-mist px-4 py-3.5 text-[15px] outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition">
+          </div>
+          <div>
+            <label for="debt" class="block text-[14px] font-semibold mb-1.5">Примерная сумма долга</label>
+            <select id="debt" name="debt" class="w-full rounded-xl border border-line bg-mist px-4 py-3.5 text-[15px] outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition">
+              <option value="" selected>Выберите диапазон</option>
+              <option value="до 300 000 ₽">До 300 000 ₽</option>
+              <option value="300 000 – 500 000 ₽">300 000 – 500 000 ₽</option>
+              <option value="500 000 – 1 000 000 ₽">500 000 – 1 000 000 ₽</option>
+              <option value="1 – 3 млн ₽">1 – 3 млн ₽</option>
+              <option value="более 3 млн ₽">Более 3 млн ₽</option>
+            </select>
+          </div>
+          <label class="flex items-start gap-3 text-[13.5px] leading-snug text-muted cursor-pointer select-none">
+            <input id="consent" name="consent" type="checkbox" required class="mt-0.5 w-4 h-4 rounded border-line text-accent focus:ring-accent/30">
+            <span>Соглашаюсь на обработку персональных данных в соответствии с политикой конфиденциальности</span>
+          </label>
+          <p id="form-error" class="hidden text-[13.5px] text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3"></p>
+          <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-4 rounded-2xl text-[16px] font-semibold hover:bg-accentdeep transition-colors">
+            Получить консультацию
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </button>
+          <p class="text-[12.5px] text-muted text-center">Звоним только по делу. Никакого спама и навязчивых продаж.</p>
+        </form>
+        <div id="form-success" class="hidden mt-7 text-center py-8">
+          <span class="inline-flex w-16 h-16 rounded-full bg-accenttint items-center justify-center">
+            <i data-lucide="check" class="w-8 h-8 text-accentdeep"></i>
+          </span>
+          <h4 class="mt-5 font-display text-[22px] font-semibold">Заявка отправлена</h4>
+          <p class="mt-2 text-[15px] text-muted leading-relaxed">Спасибо за доверие. Юрист свяжется с вами в течение рабочего дня, изучит ситуацию и предложит план действий.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-ink text-cloud/70 border-t border-cloud/10">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 py-12">
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <p class="font-display font-semibold text-[20px] text-mist">Я<span class="text-accent">Помогаю</span>.рф</p>
+        <p class="mt-3 text-[14px] leading-relaxed max-w-[48ch]">Юридическое сопровождение банкротства физических лиц по Федеральному закону № 127-ФЗ «О несостоятельности (банкротстве)». Москва, Московская область и вся Россия — дистанционно.</p>
+      </div>
+      <nav class="md:col-span-3 text-[14.5px] space-y-3">
+        <p class="text-[13px] uppercase tracking-wide text-cloud/50 font-semibold">Разделы</p>
+        <a href="#help" class="block hover:text-mist transition-colors">Как мы помогаем</a>
+        <a href="#process" class="block hover:text-mist transition-colors">Процедура</a>
+        <a href="#pricing" class="block hover:text-mist transition-colors">Стоимость</a>
+        <a href="#faq" class="block hover:text-mist transition-colors">Вопросы и ответы</a>
+      </nav>
+      <div class="md:col-span-4 text-[14.5px] space-y-3">
+        <p class="text-[13px] uppercase tracking-wide text-cloud/50 font-semibold">Контакты</p>
+        <a href="tel:+74950000000" class="flex items-center gap-2.5 hover:text-mist transition-colors"><i data-lucide="phone" class="w-4 h-4 text-accent"></i>+7 (495) 000-00-00</a>
+        <a href="mailto:info@yapomogayu.rf" class="flex items-center gap-2.5 hover:text-mist transition-colors"><i data-lucide="mail" class="w-4 h-4 text-accent"></i>info@япомогаю.рф</a>
+        <p class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>Москва, ежедневно 9:00–21:00</p>
+      </div>
+    </div>
+    <div class="mt-10 pt-7 border-t border-cloud/10 flex flex-col sm:flex-row gap-4 justify-between text-[12.5px] text-cloud/50">
+      <p>© 2023–2026 ЯПомогаю.рф. Информация на сайте не является публичной офертой. Результат процедуры определяется судом и зависит от обстоятельств конкретного дела.</p>
+      <a href="#" class="hover:text-cloud whitespace-nowrap">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Иконки Lucide
+  lucide.createIcons();
+
+  // Мобильное меню
+  var menuBtn = document.getElementById('menu-btn');
+  var mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', function () {
+    mobileMenu.classList.toggle('hidden');
+  });
+  mobileMenu.querySelectorAll('.menu-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+
+  // Аккордеон FAQ
+  document.querySelectorAll('.faq-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Появление секций при прокрутке
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Форма заявки
+  var form = document.getElementById('lead-form');
+  var success = document.getElementById('form-success');
+  var errorBox = document.getElementById('form-error');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var consent = form.consent.checked;
+    var errors = [];
+    if (name.length < 2) errors.push('укажите имя');
+    if (phone.replace(/\D/g, '').length < 10) errors.push('укажите корректный телефон');
+    if (!consent) errors.push('подтвердите согласие на обработку данных');
+    if (errors.length) {
+      errorBox.textContent = 'Пожалуйста, ' + errors.join(', ') + '.';
+      errorBox.classList.remove('hidden');
+      return;
+    }
+    errorBox.classList.add('hidden');
+    console.log('Заявка на консультацию:', {
+      name: name,
+      phone: phone,
+      debt: form.debt.value || 'не указана'
+    });
+    form.classList.add('hidden');
+    success.classList.remove('hidden');
+    lucide.createIcons();
+  });
+});
+</script>
+</body>
+</html>
