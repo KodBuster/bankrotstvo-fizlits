@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Заявка отправлена | ЯПомогаю.рф</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#0F172A',
+        inksoft: '#1B2740',
+        mist: '#F4F6F9',
+        card: '#FBFCFD',
+        line: '#E2E7EF',
+        muted: '#55617A',
+        accent: '#059669',
+        accentdeep: '#047857',
+        accenttint: '#E9F6F0',
+        cloud: '#DDE4F0'
+      },
+      fontFamily: {
+        display: ['Lora', 'Georgia', 'serif'],
+        body: ['Onest', 'system-ui', 'sans-serif']
+      },
+      boxShadow: {
+        soft: '0 6px 24px -8px rgba(15, 23, 42, 0.10)',
+        lift: '0 16px 48px -12px rgba(15, 23, 42, 0.18)'
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="font-body bg-mist text-ink antialiased min-h-screen flex flex-col">
+
+<header class="bg-mist/90 backdrop-blur border-b border-line/70">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 h-[72px] flex items-center justify-between">
+    <a href="index.html" class="font-display font-bold text-[20px] lg:text-[22px] tracking-tight">Я<span class="text-accent">Помогаю</span>.рф</a>
+    <a href="tel:+79775959597" class="inline-flex items-center gap-2 text-[14px] font-semibold text-inksoft hover:text-accent transition-colors">
+      <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
+      <span class="hidden sm:inline">+7 (977) 595-95-97</span>
+    </a>
+  </div>
+</header>
+
+<main class="flex-1 flex items-center justify-center px-5 py-16">
+  <div class="w-full max-w-lg bg-card border border-line rounded-3xl shadow-lift p-8 sm:p-10 text-center">
+    <span class="inline-flex w-20 h-20 rounded-full bg-accenttint items-center justify-center">
+      <i data-lucide="check" class="w-10 h-10 text-accentdeep"></i>
+    </span>
+    <h1 class="mt-6 font-display font-semibold text-[30px] sm:text-[34px] leading-tight tracking-tight">Заявка отправлена</h1>
+    <p class="mt-4 text-[16px] leading-relaxed text-muted">Спасибо за доверие. Юрист получил вашу заявку и свяжется с вами в течение рабочего дня.</p>
+    <p id="lead-summary" class="hidden mt-6 text-left rounded-2xl bg-mist border border-line px-5 py-4 text-[14.5px] leading-relaxed text-inksoft"></p>
+    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-3.5 rounded-2xl text-[15px] font-semibold hover:bg-accentdeep transition-colors">
+        На главную
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      </a>
+      <a href="https://max.ru/id230495694" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-mist border border-line px-6 py-3.5 rounded-2xl text-[15px] font-semibold hover:border-accent hover:text-accentdeep transition-colors">
+        Написать в MAX
+        <img src="images/maxxx.svg" alt="" width="20" height="20" class="w-5 h-5 rounded-full" aria-hidden="true">
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="py-6 text-center text-[13px] text-muted">
+  © 2023–2026 ЯПомогаю.рф
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  lucide.createIcons();
+  var params = new URLSearchParams(window.location.search);
+  var name = params.get('name');
+  var phone = params.get('phone');
+  if (name || phone) {
+    var summary = document.getElementById('lead-summary');
+    var parts = [];
+    if (name) parts.push('<strong>Имя:</strong> ' + name.replace(/</g, '&lt;'));
+    if (phone) parts.push('<strong>Телефон:</strong> ' + phone.replace(/</g, '&lt;'));
+    summary.innerHTML = parts.join('<br>');
+    summary.classList.remove('hidden');
+  }
+});
+</script>
+</body>
+</html>

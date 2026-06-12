@@ -51,26 +51,59 @@ tailwind.config = {
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
   }
+  #messenger-fab #messenger-menu {
+    opacity: 0;
+    transform: translateY(8px) scale(.96);
+    pointer-events: none;
+    transition: opacity .28s cubic-bezier(.22,1,.36,1), transform .28s cubic-bezier(.22,1,.36,1);
+  }
+  #messenger-fab.open #messenger-menu {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  #messenger-fab.open .messenger-icon-plus { display: none; }
+  #messenger-fab.open .messenger-icon-close { display: block; }
+  #messenger-fab .messenger-icon-close { display: none; }
+  #messenger-fab .messenger-item {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .25s cubic-bezier(.22,1,.36,1), transform .25s cubic-bezier(.22,1,.36,1);
+  }
+  #messenger-fab.open .messenger-item { opacity: 1; transform: none; }
+  #messenger-fab.open .messenger-item:nth-child(1) { transition-delay: .06s; }
+  #messenger-fab.open .messenger-item:nth-child(2) { transition-delay: .12s; }
+  #messenger-fab.open .messenger-item:nth-child(3) { transition-delay: .18s; }
+  @media (prefers-reduced-motion: reduce) {
+    #messenger-fab #messenger-menu,
+    #messenger-fab .messenger-item { transition: none; opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body class="font-body bg-mist text-ink antialiased">
 
 <!-- ===================== HEADER ===================== -->
 <header id="site-header" class="sticky top-0 z-50 bg-mist/90 backdrop-blur border-b border-line/70">
-  <div class="max-w-6xl mx-auto px-5 lg:px-8 h-[72px] flex items-center justify-between">
-    <a href="#" class="flex items-baseline gap-0.5 select-none">
-      <span class="font-display font-bold text-[22px] tracking-tight">Я<span class="text-accent">Помогаю</span>.рф</span>
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 h-[72px] flex items-center gap-3 lg:gap-4">
+    <a href="#" class="flex items-baseline gap-0.5 select-none shrink-0">
+      <span class="font-display font-bold text-[20px] lg:text-[22px] tracking-tight">Я<span class="text-accent">Помогаю</span>.рф</span>
     </a>
-    <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium text-inksoft">
-      <a href="#help" class="hover:text-accent transition-colors">Как мы помогаем</a>
-      <a href="#process" class="hover:text-accent transition-colors">Процедура</a>
-      <a href="#pricing" class="hover:text-accent transition-colors">Стоимость</a>
-      <a href="#reviews" class="hover:text-accent transition-colors">Отзывы</a>
-      <a href="#faq" class="hover:text-accent transition-colors">Вопросы</a>
+    <nav class="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-7 min-w-0 text-[14px] xl:text-[15px] font-medium text-inksoft">
+      <a href="#help" class="hover:text-accent transition-colors whitespace-nowrap">Как мы помогаем</a>
+      <a href="#process" class="hover:text-accent transition-colors whitespace-nowrap">Процедура</a>
+      <a href="#pricing" class="hover:text-accent transition-colors whitespace-nowrap">Стоимость</a>
+      <a href="#reviews" class="hover:text-accent transition-colors whitespace-nowrap">Отзывы</a>
+      <a href="#faq" class="hover:text-accent transition-colors whitespace-nowrap">Вопросы</a>
     </nav>
-    <div class="flex items-center gap-3">
-      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-ink text-mist px-5 py-2.5 rounded-2xl text-[15px] font-semibold hover:bg-inksoft transition-colors">
-        Бесплатная консультация
+    <div class="flex items-center gap-2 xl:gap-3 shrink-0 ml-auto lg:ml-0">
+      <a href="tel:+79775959597" aria-label="Позвонить +7 (977) 595-95-97"
+         class="inline-flex items-center gap-1.5 xl:gap-2 text-[14px] xl:text-[15px] font-semibold text-inksoft hover:text-accent transition-colors whitespace-nowrap">
+        <i data-lucide="phone" class="w-4 h-4 text-accent shrink-0"></i>
+        <span class="hidden xl:inline">+7 (977) 595-95-97</span>
+      </a>
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-ink text-mist px-3.5 lg:px-4 xl:px-5 py-2.5 rounded-2xl text-[14px] xl:text-[15px] font-semibold hover:bg-inksoft transition-colors whitespace-nowrap">
+        <span class="xl:hidden">Консультация</span>
+        <span class="hidden xl:inline">Бесплатная консультация</span>
       </a>
       <button id="menu-btn" class="lg:hidden p-2 -mr-2" aria-label="Открыть меню">
         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -84,6 +117,10 @@ tailwind.config = {
       <a href="#pricing" class="menu-link">Стоимость</a>
       <a href="#reviews" class="menu-link">Отзывы</a>
       <a href="#faq" class="menu-link">Вопросы</a>
+      <a href="tel:+79775959597" class="menu-link inline-flex items-center gap-2.5 text-accent font-semibold">
+        <i data-lucide="phone" class="w-5 h-5"></i>
+        +7 (977) 595-95-97
+      </a>
       <a href="#contact" class="menu-link inline-flex items-center justify-center bg-ink text-mist px-5 py-3 rounded-2xl font-semibold">Бесплатная консультация</a>
     </nav>
   </div>
@@ -132,7 +169,7 @@ tailwind.config = {
     </div>
     <div class="lg:col-span-5 relative">
       <div class="rounded-2xl overflow-hidden shadow-lift">
-        <img src="https://placehold.co/880x1060/DDE4F0/55617A?text=Hero+photo" class="w-full h-full object-cover aspect-[4/5]"
+        <img src="images/hero.jpg" class="w-full h-full object-cover aspect-[4/5]"
           alt="Спокойная женщина около 42 лет славянской внешности сидит за столом в светлой современной московской квартире и смотрит в окно с лёгкой улыбкой облегчения. На столе аккуратная стопка документов и чашка чая. Мягкий естественный свет из большого окна, тёплая и обнадеживающая атмосфера, фон слегка размыт. Светлые тона, без драматизма.">
       </div>
       <div class="absolute -bottom-5 -left-5 sm:-left-8 bg-card border border-line rounded-2xl shadow-soft px-5 py-4 flex items-center gap-3 max-w-[260px]">
@@ -266,7 +303,7 @@ tailwind.config = {
       <div class="lg:col-span-5 lg:sticky lg:top-28 reveal">
         <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Почему люди доверяют нам сложный период своей жизни</h2>
         <div class="mt-8 rounded-2xl overflow-hidden shadow-soft">
-          <img src="https://placehold.co/920x690/DDE4F0/55617A?text=Lawyer+and+client" class="w-full object-cover aspect-[4/3]"
+          <img src="images/why-us.jpg" class="w-full object-cover aspect-[4/3]"
             alt="Профессиональный юрист и клиент, мужчина 42 лет, сидят за столом в светлом современном офисе. Юрист спокойно объясняет документы, показывая на страницу, клиент внимательно слушает. Оба в деловой casual одежде. Атмосфера доверия и спокойствия, мягкий дневной свет, светлые тона интерьера.">
         </div>
       </div>
@@ -515,18 +552,18 @@ tailwind.config = {
         <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-tight tracking-tight">Результаты, которыми делятся клиенты</h2>
         <p class="mt-4 text-[16.5px] text-muted leading-relaxed">Каждое дело завершается судебным актом — его номер можно проверить в картотеке арбитражных дел.</p>
       </div>
-      <dl class="lg:col-span-6 grid grid-cols-3 gap-6 lg:justify-items-end text-left lg:text-right">
-        <div>
-          <dt class="text-[13px] text-muted">завершённых процедур</dt>
-          <dd class="mt-1 font-display text-[30px] font-semibold leading-none">2 137</dd>
+      <dl class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:justify-items-end text-left lg:text-right">
+        <div class="flex sm:block items-baseline justify-between gap-4 sm:gap-0 rounded-xl sm:rounded-none bg-mist sm:bg-transparent border border-line sm:border-0 px-4 py-3.5 sm:p-0">
+          <dt class="text-[13px] text-muted order-2 sm:order-none sm:mt-0">завершённых процедур</dt>
+          <dd class="font-display text-[28px] sm:text-[30px] font-semibold leading-none order-1 sm:order-none sm:mt-1">2 137</dd>
         </div>
-        <div>
-          <dt class="text-[13px] text-muted">списано долгов</dt>
-          <dd class="mt-1 font-display text-[30px] font-semibold leading-none">3,4 млрд ₽</dd>
+        <div class="flex sm:block items-baseline justify-between gap-4 sm:gap-0 rounded-xl sm:rounded-none bg-mist sm:bg-transparent border border-line sm:border-0 px-4 py-3.5 sm:p-0">
+          <dt class="text-[13px] text-muted order-2 sm:order-none sm:mt-0">списано долгов</dt>
+          <dd class="font-display text-[28px] sm:text-[30px] font-semibold leading-none order-1 sm:order-none sm:mt-1">3,4 млрд ₽</dd>
         </div>
-        <div>
-          <dt class="text-[13px] text-muted">лет практики</dt>
-          <dd class="mt-1 font-display text-[30px] font-semibold leading-none">9</dd>
+        <div class="flex sm:block items-baseline justify-between gap-4 sm:gap-0 rounded-xl sm:rounded-none bg-mist sm:bg-transparent border border-line sm:border-0 px-4 py-3.5 sm:p-0">
+          <dt class="text-[13px] text-muted order-2 sm:order-none sm:mt-0">лет практики</dt>
+          <dd class="font-display text-[28px] sm:text-[30px] font-semibold leading-none order-1 sm:order-none sm:mt-1">9</dd>
         </div>
       </dl>
     </div>
@@ -535,7 +572,7 @@ tailwind.config = {
         <i data-lucide="quote" class="w-7 h-7 text-accent/60"></i>
         <blockquote class="mt-5 text-[15.5px] leading-relaxed text-inksoft flex-1">«Три года я платила только проценты по пяти кредитам. Боялась самого слова "банкротство", но мне спокойно объяснили и плюсы, и минусы. Через 10 месяцев суд списал 870 тысяч. Впервые за долгое время я сплю по ночам».</blockquote>
         <figcaption class="mt-7 flex items-center gap-4">
-          <img src="https://placehold.co/160x160/DDE4F0/55617A?text=E" class="w-12 h-12 rounded-full object-cover"
+          <img src="images/review-1.jpg" class="w-12 h-12 rounded-full object-cover"
             alt="Портрет женщины 38 лет славянской внешности в уютной домашней обстановке. Она улыбается с заметным облегчением, мягкий тёплый свет, светлый интерьер, повседневная аккуратная одежда.">
           <div>
             <p class="font-semibold text-[15px]">Елена, 38 лет</p>
@@ -547,7 +584,7 @@ tailwind.config = {
         <i data-lucide="quote" class="w-7 h-7 text-accent/60"></i>
         <blockquote class="mt-5 text-[15.5px] leading-relaxed text-inksoft flex-1">«Сразу предупредили, что машину, скорее всего, продадут с торгов — так и вышло. Зато никаких сказок и неожиданностей. Долг в 1,4 миллиона списали, единственную квартиру не тронули. Сейчас работаю и коплю на новую машину уже без кредитов».</blockquote>
         <figcaption class="mt-7 flex items-center gap-4">
-          <img src="https://placehold.co/160x160/DDE4F0/55617A?text=S" class="w-12 h-12 rounded-full object-cover"
+          <img src="images/review-2.jpg" class="w-12 h-12 rounded-full object-cover"
             alt="Мужчина 47 лет славянской внешности за рулём автомобиля, спокойное уверенное выражение лица, лёгкая улыбка, дневной свет через лобовое стекло. Символ начала новой жизни, без пафоса, реалистичная атмосфера.">
           <div>
             <p class="font-semibold text-[15px]">Сергей, 47 лет</p>
@@ -559,7 +596,7 @@ tailwind.config = {
         <i data-lucide="quote" class="w-7 h-7 text-accent/60"></i>
         <blockquote class="mt-5 text-[15.5px] leading-relaxed text-inksoft flex-1">«Мы с мужем набрали займов после того, как он потерял работу. Банкротились по очереди, юрист вёл оба дела. Процедуры заняли по году, было непросто собрать документы, но нас вели за руку. Списали в сумме 2,1 миллиона. Теперь живём по средствам — и это счастье».</blockquote>
         <figcaption class="mt-7 flex items-center gap-4">
-          <img src="https://placehold.co/160x160/DDE4F0/55617A?text=A%2BO" class="w-12 h-12 rounded-full object-cover"
+          <img src="images/review-3.jpg" class="w-12 h-12 rounded-full object-cover"
             alt="Семейная пара 40+ лет славянской внешности в современной светлой кухне-гостиной. Они обнимаются, лица спокойные и счастливые, естественный дневной свет, уютная домашняя атмосфера без постановочности.">
           <div>
             <p class="font-semibold text-[15px]">Андрей и Ольга</p>
@@ -668,13 +705,13 @@ tailwind.config = {
   </div>
 </section>
 <!-- ===================== ФИНАЛЬНЫЙ CTA + ФОРМА ===================== -->
-<section id="contact" class="py-16 lg:py-24 bg-ink text-cloud">
+<section id="contact" class="pt-16 pb-32 lg:py-24 bg-ink text-cloud">
   <div class="max-w-6xl mx-auto px-5 lg:px-8 grid lg:grid-cols-12 gap-12 items-center">
     <div class="lg:col-span-6 reveal">
       <h2 class="font-display font-semibold text-[30px] sm:text-[40px] leading-tight tracking-tight text-mist">Сделайте первый шаг.<br>Остальные мы пройдём вместе.</h2>
       <p class="mt-5 text-[16.5px] leading-relaxed text-cloud/80 max-w-[56ch]">Оставьте заявку — юрист перезвонит в течение рабочего дня, разберёт вашу ситуацию и честно скажет, подходит ли вам банкротство. Консультация бесплатна и ни к чему не обязывает.</p>
       <div class="mt-9 rounded-2xl overflow-hidden shadow-lift max-w-md">
-        <img src="https://placehold.co/840x560/1B2740/8B97B5?text=Signing+documents" class="w-full object-cover aspect-[3/2]"
+        <img src="images/cta.jpg" class="w-full object-cover aspect-[3/2]"
           alt="Крупный план: руки человека подписывают документы ручкой за столом у большого окна с видом на Москву. Видны только руки, документы и край стола. Мягкий дневной свет, атмосфера решимости и начала нового жизненного этапа. Светлые спокойные тона.">
       </div>
     </div>
@@ -709,9 +746,9 @@ tailwind.config = {
             <span>Соглашаюсь на обработку персональных данных в соответствии с политикой конфиденциальности</span>
           </label>
           <p id="form-error" class="hidden text-[13.5px] text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3"></p>
-          <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-4 rounded-2xl text-[16px] font-semibold hover:bg-accentdeep transition-colors">
-            Получить консультацию
-            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          <button type="submit" id="form-submit" class="w-full inline-flex items-center justify-center gap-2 bg-accent text-white px-6 py-4 rounded-2xl text-[16px] font-semibold hover:bg-accentdeep transition-colors scroll-mb-24 disabled:opacity-70 disabled:cursor-not-allowed">
+            <span id="form-submit-label">Получить консультацию</span>
+            <i data-lucide="arrow-right" class="w-5 h-5" id="form-submit-icon"></i>
           </button>
           <p class="text-[12.5px] text-muted text-center">Звоним только по делу. Никакого спама и навязчивых продаж.</p>
         </form>
@@ -744,7 +781,7 @@ tailwind.config = {
       </nav>
       <div class="md:col-span-4 text-[14.5px] space-y-3">
         <p class="text-[13px] uppercase tracking-wide text-cloud/50 font-semibold">Контакты</p>
-        <a href="tel:+74950000000" class="flex items-center gap-2.5 hover:text-mist transition-colors"><i data-lucide="phone" class="w-4 h-4 text-accent"></i>+7 (495) 000-00-00</a>
+        <a href="tel:+79775959597" class="flex items-center gap-2.5 hover:text-mist transition-colors"><i data-lucide="phone" class="w-4 h-4 text-accent"></i>+7 (977) 595-95-97</a>
         <a href="mailto:info@yapomogayu.rf" class="flex items-center gap-2.5 hover:text-mist transition-colors"><i data-lucide="mail" class="w-4 h-4 text-accent"></i>info@япомогаю.рф</a>
         <p class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-accent"></i>Москва, ежедневно 9:00–21:00</p>
       </div>
@@ -755,6 +792,36 @@ tailwind.config = {
     </div>
   </div>
 </footer>
+
+<!-- ===================== MESSENGERS FAB ===================== -->
+<div id="messenger-fab" class="fixed bottom-6 right-5 sm:right-6 z-[60] flex flex-col items-end gap-3">
+  <div id="messenger-menu" class="flex flex-col items-end gap-2.5" aria-label="Мессенджеры">
+    <a href="https://max.ru/id230495694" target="_blank" rel="noopener noreferrer"
+       class="messenger-item group inline-flex items-center gap-3 pl-4 pr-3 py-2.5 rounded-2xl bg-[#5B4FE8] text-white shadow-lift hover:brightness-110 transition-all">
+      <span class="text-[14px] font-semibold">MAX</span>
+      <img src="images/maxxx.svg" alt="" width="40" height="40" class="w-10 h-10 rounded-full shrink-0" aria-hidden="true">
+    </a>
+    <a href="https://t.me/+79775959597" target="_blank" rel="noopener noreferrer"
+       class="messenger-item group inline-flex items-center gap-3 pl-4 pr-3 py-2.5 rounded-2xl bg-[#229ED9] text-white shadow-lift hover:brightness-110 transition-all">
+      <span class="text-[14px] font-semibold">Telegram</span>
+      <span class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.8 4.2 2.7 11.1c-1.1.4-1.1 1.1-.2 1.4l4.9 1.5 1.9 5.8c.2.7.4.9 1 .9.6 0 .8-.3 1.1-.7l2.6-2.5 4.9 3.6c.9.5 1.5.2 1.7-.9L23.6 5.5c.3-1.2-.5-1.7-1.8-1.3z"/></svg>
+      </span>
+    </a>
+    <a href="https://wa.me/79775959597" target="_blank" rel="noopener noreferrer"
+       class="messenger-item group inline-flex items-center gap-3 pl-4 pr-3 py-2.5 rounded-2xl bg-[#25D366] text-white shadow-lift hover:brightness-110 transition-all">
+      <span class="text-[14px] font-semibold">WhatsApp</span>
+      <span class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.1c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.5-1.7-1.7-2-.2-.3 0-.5.2-.7.2-.2.3-.3.4-.5.1-.2.1-.3 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.6-.5-.7-.5h-.6c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2 0 1.3.9 2.5 1 2.7.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.8-.7 2.1-1.4.2-.7.2-1.2.2-1.3-.1-.1-.2-.1-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.2 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.1 8.1 0 0 1 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg>
+      </span>
+    </a>
+  </div>
+  <button id="messenger-toggle" type="button" aria-expanded="false" aria-controls="messenger-menu" aria-label="Открыть мессенджеры"
+          class="w-14 h-14 rounded-full bg-accent text-white shadow-lift hover:bg-accentdeep transition-colors flex items-center justify-center">
+    <i data-lucide="message-circle" class="w-6 h-6 messenger-icon-plus"></i>
+    <i data-lucide="x" class="w-6 h-6 messenger-icon-close"></i>
+  </button>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -771,6 +838,30 @@ document.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('click', function () {
       mobileMenu.classList.add('hidden');
     });
+  });
+
+  // Раскрывающиеся кнопки мессенджеров
+  var messengerFab = document.getElementById('messenger-fab');
+  var messengerToggle = document.getElementById('messenger-toggle');
+  messengerToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var isOpen = messengerFab.classList.toggle('open');
+    messengerToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    messengerToggle.setAttribute('aria-label', isOpen ? 'Закрыть мессенджеры' : 'Открыть мессенджеры');
+  });
+  document.addEventListener('click', function (e) {
+    if (!messengerFab.contains(e.target)) {
+      messengerFab.classList.remove('open');
+      messengerToggle.setAttribute('aria-expanded', 'false');
+      messengerToggle.setAttribute('aria-label', 'Открыть мессенджеры');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && messengerFab.classList.contains('open')) {
+      messengerFab.classList.remove('open');
+      messengerToggle.setAttribute('aria-expanded', 'false');
+      messengerToggle.setAttribute('aria-label', 'Открыть мессенджеры');
+    }
   });
 
   // Аккордеон FAQ
@@ -804,33 +895,162 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
 
-  // Форма заявки
+  // Маска телефона +7 (XXX) XXX-XX-XX
   var form = document.getElementById('lead-form');
-  var success = document.getElementById('form-success');
+  var phoneInput = form.phone;
+
+  function normalizeDigits(raw) {
+    var digits = String(raw || '').replace(/\D/g, '');
+    if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+    else if (digits && !digits.startsWith('7')) digits = '7' + digits;
+    return digits ? digits.slice(0, 11) : '7';
+  }
+
+  function formatDigits(digits) {
+    if (!digits || digits === '7') return '+7 ';
+    var d = digits.slice(1);
+    var out = '+7 (' + d.slice(0, 3);
+    if (d.length < 3) return out;
+    out += ') ' + d.slice(3, 6);
+    if (d.length < 6) return out;
+    out += '-' + d.slice(6, 8);
+    if (d.length < 8) return out;
+    out += '-' + d.slice(8, 10);
+    return out;
+  }
+
+  function countDigitsBefore(value, pos) {
+    var count = 0;
+    for (var i = 0; i < pos && i < value.length; i++) {
+      if (/\d/.test(value[i])) count++;
+    }
+    return count;
+  }
+
+  function caretAfterDigits(formatted, digitCount) {
+    if (digitCount <= 0) return 0;
+    var count = 0;
+    for (var i = 0; i < formatted.length; i++) {
+      if (/\d/.test(formatted[i])) {
+        count++;
+        if (count === digitCount) return i + 1;
+      }
+    }
+    return formatted.length;
+  }
+
+  function setPhoneValue(digits, caretDigitCount) {
+    var formatted = formatDigits(digits);
+    phoneInput.value = formatted;
+    var pos = caretAfterDigits(formatted, caretDigitCount);
+    phoneInput.setSelectionRange(pos, pos);
+  }
+
+  phoneInput.addEventListener('focus', function () {
+    if (normalizeDigits(phoneInput.value) === '7') setPhoneValue('7', 1);
+  });
+
+  phoneInput.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === 'Tab' || e.key.startsWith('Arrow') || e.key === 'Home' || e.key === 'End') return;
+
+    var digits = normalizeDigits(phoneInput.value);
+    var start = phoneInput.selectionStart;
+    var end = phoneInput.selectionEnd;
+    var digitsBefore = countDigitsBefore(phoneInput.value, start);
+    var digitsAfter = countDigitsBefore(phoneInput.value, end);
+
+    if (e.key === 'Backspace') {
+      e.preventDefault();
+      if (start !== end) {
+        digits = digits.slice(0, digitsBefore) + digits.slice(digitsAfter);
+        setPhoneValue(digits, digitsBefore);
+      } else if (digitsBefore > 1) {
+        digits = digits.slice(0, digitsBefore - 1) + digits.slice(digitsBefore);
+        setPhoneValue(digits, digitsBefore - 1);
+      } else {
+        setPhoneValue('7', 1);
+      }
+      return;
+    }
+
+    if (e.key === 'Delete') {
+      e.preventDefault();
+      if (start !== end) {
+        digits = digits.slice(0, digitsBefore) + digits.slice(digitsAfter);
+        setPhoneValue(digits, digitsBefore);
+      } else if (digitsBefore < digits.length) {
+        digits = digits.slice(0, digitsBefore) + digits.slice(digitsBefore + 1);
+        setPhoneValue(digits, digitsBefore);
+      }
+      return;
+    }
+
+    if (/\d/.test(e.key)) {
+      e.preventDefault();
+      if (digits.length >= 11 && start === end) return;
+      if (start !== end) digits = digits.slice(0, digitsBefore) + digits.slice(digitsAfter);
+      digits = (digits.slice(0, digitsBefore) + e.key + digits.slice(digitsBefore)).slice(0, 11);
+      if (!digits.startsWith('7')) digits = normalizeDigits(digits);
+      setPhoneValue(digits, Math.min(digitsBefore + 1, digits.length));
+    }
+  });
+
+  phoneInput.addEventListener('paste', function (e) {
+    e.preventDefault();
+    var text = (e.clipboardData || window.clipboardData).getData('text');
+    setPhoneValue(normalizeDigits(text), normalizeDigits(text).length);
+  });
+
+  phoneInput.addEventListener('input', function () {
+    setPhoneValue(normalizeDigits(phoneInput.value), normalizeDigits(phoneInput.value).length);
+  });
+
+  // Форма заявки → MAX messenger
+  var submitBtn = document.getElementById('form-submit');
+  var submitLabel = document.getElementById('form-submit-label');
   var errorBox = document.getElementById('form-error');
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = form.name.value.trim();
     var phone = form.phone.value.trim();
+    var debt = form.debt.value;
     var consent = form.consent.checked;
     var errors = [];
     if (name.length < 2) errors.push('укажите имя');
-    if (phone.replace(/\D/g, '').length < 10) errors.push('укажите корректный телефон');
+    if (phone.replace(/\D/g, '').length < 11) errors.push('укажите корректный телефон');
     if (!consent) errors.push('подтвердите согласие на обработку данных');
     if (errors.length) {
       errorBox.textContent = 'Пожалуйста, ' + errors.join(', ') + '.';
       errorBox.classList.remove('hidden');
       return;
     }
+
     errorBox.classList.add('hidden');
-    console.log('Заявка на консультацию:', {
-      name: name,
-      phone: phone,
-      debt: form.debt.value || 'не указана'
-    });
-    form.classList.add('hidden');
-    success.classList.remove('hidden');
-    lucide.createIcons();
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Отправляем…';
+
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, phone: phone, debt: debt, consent: consent })
+    })
+      .then(function (response) {
+        return response.json().then(function (data) {
+          if (!response.ok || !data.ok) {
+            throw new Error(data.error || 'Не удалось отправить заявку.');
+          }
+          var params = new URLSearchParams({ name: name, phone: phone });
+          window.location.href = 'success.html?' + params.toString();
+        });
+      })
+      .catch(function (err) {
+        errorBox.textContent = err.message || 'Не удалось отправить заявку. Попробуйте позже или позвоните нам.';
+        errorBox.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitLabel.textContent = 'Получить консультацию';
+      });
   });
 });
 </script>
