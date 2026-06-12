@@ -64,7 +64,7 @@ tailwind.config = {
         На главную
         <i data-lucide="arrow-left" class="w-4 h-4"></i>
       </a>
-      <a href="https://max.ru/id230495694" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-mist border border-line px-6 py-3.5 rounded-2xl text-[15px] font-semibold hover:border-accent hover:text-accentdeep transition-colors">
+      <a id="link-max-success" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-mist border border-line px-6 py-3.5 rounded-2xl text-[15px] font-semibold hover:border-accent hover:text-accentdeep transition-colors">
         Написать в MAX
         <img src="images/maxxx.svg" alt="" width="20" height="20" class="w-5 h-5 rounded-full" aria-hidden="true">
       </a>
@@ -79,6 +79,16 @@ tailwind.config = {
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   lucide.createIcons();
+
+  fetch('api/public-config.php')
+    .then(function (response) { return response.ok ? response.json() : null; })
+    .then(function (cfg) {
+      if (!cfg || !cfg.maxProfileUrl) return;
+      var maxLink = document.getElementById('link-max-success');
+      if (maxLink) maxLink.href = cfg.maxProfileUrl;
+    })
+    .catch(function () {});
+
   var params = new URLSearchParams(window.location.search);
   var name = params.get('name');
   var phone = params.get('phone');

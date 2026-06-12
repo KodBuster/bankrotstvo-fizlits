@@ -1,0 +1,5 @@
+<IfModule mod_authz_core.c>
+  <FilesMatch "^(config\.local\.php|config\.php)$">
+    Require all denied
+  </FilesMatch>
+</IfModule>

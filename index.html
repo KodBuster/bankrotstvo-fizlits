@@ -796,19 +796,19 @@ tailwind.config = {
 <!-- ===================== MESSENGERS FAB ===================== -->
 <div id="messenger-fab" class="fixed bottom-6 right-5 sm:right-6 z-[60] flex flex-col items-end gap-3">
   <div id="messenger-menu" class="flex flex-col items-end gap-2.5" aria-label="Мессенджеры">
-    <a href="https://max.ru/id230495694" target="_blank" rel="noopener noreferrer"
+    <a id="link-max" href="#" target="_blank" rel="noopener noreferrer"
        class="messenger-item group inline-flex items-center gap-3 pl-4 pr-3 py-2.5 rounded-2xl bg-[#5B4FE8] text-white shadow-lift hover:brightness-110 transition-all">
       <span class="text-[14px] font-semibold">MAX</span>
       <img src="images/maxxx.svg" alt="" width="40" height="40" class="w-10 h-10 rounded-full shrink-0" aria-hidden="true">
     </a>
-    <a href="https://t.me/+79775959597" target="_blank" rel="noopener noreferrer"
+    <a id="link-telegram" href="#" target="_blank" rel="noopener noreferrer"
        class="messenger-item group inline-flex items-center gap-3 pl-4 pr-3 py-2.5 rounded-2xl bg-[#229ED9] text-white shadow-lift hover:brightness-110 transition-all">
       <span class="text-[14px] font-semibold">Telegram</span>
       <span class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.8 4.2 2.7 11.1c-1.1.4-1.1 1.1-.2 1.4l4.9 1.5 1.9 5.8c.2.7.4.9 1 .9.6 0 .8-.3 1.1-.7l2.6-2.5 4.9 3.6c.9.5 1.5.2 1.7-.9L23.6 5.5c.3-1.2-.5-1.7-1.8-1.3z"/></svg>
       </span>
     </a>
-    <a href="https://wa.me/79775959597" target="_blank" rel="noopener noreferrer"
+    <a id="link-whatsapp" href="#" target="_blank" rel="noopener noreferrer"
        class="messenger-item group inline-flex items-center gap-3 pl-4 pr-3 py-2.5 rounded-2xl bg-[#25D366] text-white shadow-lift hover:brightness-110 transition-all">
       <span class="text-[14px] font-semibold">WhatsApp</span>
       <span class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
@@ -827,6 +827,20 @@ tailwind.config = {
 document.addEventListener('DOMContentLoaded', function () {
   // Иконки Lucide
   lucide.createIcons();
+
+  // Ссылки мессенджеров из локального конфига (не хранятся в GitHub)
+  fetch('api/public-config.php')
+    .then(function (response) { return response.ok ? response.json() : null; })
+    .then(function (cfg) {
+      if (!cfg) return;
+      var maxLink = document.getElementById('link-max');
+      var tgLink = document.getElementById('link-telegram');
+      var waLink = document.getElementById('link-whatsapp');
+      if (maxLink && cfg.maxProfileUrl) maxLink.href = cfg.maxProfileUrl;
+      if (tgLink && cfg.telegramUrl) tgLink.href = cfg.telegramUrl;
+      if (waLink && cfg.whatsappUrl) waLink.href = cfg.whatsappUrl;
+    })
+    .catch(function () {});
 
   // Мобильное меню
   var menuBtn = document.getElementById('menu-btn');
@@ -1031,7 +1045,7 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.disabled = true;
     submitLabel.textContent = 'Отправляем…';
 
-    fetch('/api/lead', {
+    fetch('api/lead.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: name, phone: phone, debt: debt, consent: consent })

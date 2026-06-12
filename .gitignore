@@ -1,4 +1,6 @@
 .env
+api/config.local.php
+js/site-config.js
 __pycache__/
 *.pyc
 .python-version

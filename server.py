@@ -31,7 +31,7 @@ def load_env(path: Path) -> None:
 
 
 def get_recipient_ids() -> list[int]:
-    raw = os.environ.get("MAX_RECIPIENT_IDS", "230495694")
+    raw = os.environ.get("MAX_RECIPIENT_IDS", "")
     return [int(part.strip()) for part in raw.split(",") if part.strip()]
 
 
