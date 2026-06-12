@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /success.html
+
+Sitemap: https://я-помогаю.рф/bankrotstvo/sitemap.xml
